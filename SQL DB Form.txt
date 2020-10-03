@@ -1,0 +1,193 @@
+create database DB
+use DB
+
+
+create table Sluchai(id int not null,sl varchar(300))/*Укажите,что случилось*/
+alter table Sluchai
+add constraint pk_Sluchai
+primary key(id)
+insert into Sluchai values
+(1,'Животное пострадало,но осталось в живых'),
+(2,'У меня украли питомца'),
+(3,'Из-за неадекватных услуг ветклиники у меня пострадало животное'),
+(4,'Я хочу включить своего питомца в завещание,но не знаю как'),
+(5,'У нас в городе появился контактный зоопарк,в котором животных сожержат в ужасных условиях'),
+(6,'Служба отлова работает с нарушениями')
+
+create table Damage(id int not null,damage varchar(100))/*Как пострадало животное?*/
+alter table Damage
+add constraint pk_Damage
+primary key(id)
+insert into Damage values
+(1,'Ранили из огнестрельного оружия'),
+(2,'Ранили другими видами оружия'),
+(3,'Отравили'),
+(4,'Другое')
+
+create table Weapon(id int not null,weapon varchar(100))/*Укажите вид оружия*/
+alter table Weapon
+add constraint pk_Weapon
+primary key(id)
+insert into Weapon values
+(1,'Нож'),
+(2,'Палка'),
+(3,'Бутылка'),
+(4,'Камень')
+
+create table SpaceCity(id int not null,spacecity varchar(5))/*Произошло ли это в черте города?*/
+alter table SpaceCity
+add constraint pk_SpaceCity
+primary key(id)
+insert into SpaceCity values
+(1,'Да'),
+(2,'Нет')
+
+create table Svideteli(id int not null,svideteli varchar(5))/*Свидетелями ситуации были дети?*/
+alter table Svideteli
+add constraint pk_Svideteli
+primary key(id)
+insert into Svideteli values
+(1,'Да'),
+(2,'Нет')
+
+
+
+create table Document(id int not null,document varchar(5))/*Было ли это породистое животное с документами?*/
+alter table Document
+add constraint pk_Document
+primary key(id)
+insert into Document values
+(1,'Да'),
+(2,'Нет')
+
+create table Domestic(id int not null,domestic varchar(5))/*Было ли это домашнее животное?*/
+alter table Domestic
+add constraint pk_Domestic
+primary key(id)
+insert into Domestic values
+(1,'Да'),
+(2,'Нет')
+
+create table Region(id int not null,region varchar(100))/*Выберите свой регион*/
+insert into Region values
+(1,'Алтайский край'),
+(2,'Амурская область'),
+(3,'Архангельская область'),
+(4,'Астраханская область'),
+(5,'Белгородская область'),
+(6,'Брянская область'),
+(7,'Владимирская область'),
+(8,'Волгоградская область'),
+(9,'Вологодская область'),
+(10,'Воронежская область'),
+(11,'город Севастополь'),
+(12,'Еврейская АО'),
+(13,'Забайкальский край'),
+(14,'Ивановская область'),
+(15,'Иркутская область'),
+(16,'Калининградская область'),
+(17,'Калужская область'),
+(18,'Камчатский край'),
+(19,'Кемеровская область'),
+(20,'Кировская область'),
+(21,'Костромская область'),
+(22,'Краснодарский край'),
+(23,'Красноярский край'),
+(24,'Курганская область'),
+(25,'Курская область'),
+(26,'Ленинградская область'),
+(27,'Липецкая область'),
+(28,'Магаданская область'),
+(29,'Москва'),
+(30,'Московская область'),
+(31,'Мурманская область'),
+(32,'Ненецкий АО'),
+(33,'Нижегородская область'),
+(34,'Новгородская область'),
+(35,'Новосибирская область'),
+(36,'Омская область'),
+(37,'Оренбургская область'),
+(38,'Орловская область'),
+(39,'Пензенская область'),
+(40,'Пермский край'),
+(41,'Приморский край'),
+(42,'Псковская область'),
+(43,'Респ. Кабардино-Балкария'),
+(44,'Респ. Карачаево-Черкесия'),
+(45,'Республика Адыгея'),
+(46,'Республика Алтай'),
+(47,'Республика Башкортостан'),
+(48,'Республика Бурятия'),
+(49,'Республика Дагестан'),
+(50,'Республика Ингушетия'),
+(51,'Республика Калмыкия'),
+(52,'Республика Карелия'),
+(53,'Республика Коми'),
+(54,'Республика Крым'),
+(55,'Республика Марий Эл'),
+(56,'Республика Мордовия'),
+(57,'Республика Саха(Якутия)'),
+(58,'Республика Северная Осетия'),
+(59,'Республика Татарстан'),
+(60,'Республика Тыва (Тува)'),
+(61,'Республика Хакасия'),
+(62,'Ростовская область'),
+(63,'Рязанская область'),
+(64,'Самарская область'),
+(65,'Санкт-Петербург'),
+(66,'Саратовская область'),
+(67,'Сахалинская область'),
+(68,'Свердловская область'),
+(69,'Смоленская область'),
+(70,'Ставропольский край'),
+(71,'Тамбовская область'),
+(72,'Тверская область'),
+(73,'Томская область'),
+(74,'Тульская область'),
+(75,'Тюменская область'),
+(76,'Удмуртская Республика'),
+(77,'Ульяновская область'),
+(78,'Хабаровский край'),
+(79,'Ханты-Мансийский АО - Югра'),
+(80,'Челябинская область'),
+(81,'Чеченская Республика'),
+(82,'Чувашская Республика'),
+(83,'Чукотский АО'),
+(84,'Ямало-Ненецкий АО'),
+(85,'Ярославская область')
+
+
+create table Info(id int not null,   /*Информация о составителе заявления*/
+surname varchar(50),
+lastname varchar(50),
+otchestvo varchar(50),
+email varchar(100),
+telephonenumber varchar(30))
+alter table Info
+add constraint pk_Info
+primary key(id)
+
+
+create table Opisanie(id int not null,opisanie varchar(3000))/*Описание ситуации*/
+alter table Opisanie
+add constraint pk_Opisanie
+primary key(id)
+
+create table City(id int not null,city varchar(100))/*Город заявителя*/
+alter table City
+add constraint pk_City
+primary key(id)
+
+
+
+select * from Sluchai
+select * from Damage
+select * from Weapon
+select * from SpaceCity
+select * from Svideteli
+select * from Document
+select * from Domestic
+select * from Region
+select * from Info
+select * from Opisanie 
+select * from City
